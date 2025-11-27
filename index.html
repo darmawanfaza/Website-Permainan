@@ -52,7 +52,7 @@
       <article class="game-card" data-target="solitaire-screen">
         <div class="game-icon">🃏</div>
         <h2>Solitaire</h2>
-        <p>Solitaire sederhana dengan stock, waste, dan tableau kartu tertutup.</p>
+        <p>Solitaire ala Klondike: stock, waste, dan tableau 7 kolom.</p>
         <button class="play-button">Play</button>
       </article>
 
@@ -114,7 +114,7 @@
     </div>
   </section>
 
-  <!-- SOLITAIRE SCREEN (dengan stock & tableau tertutup) -->
+  <!-- SOLITAIRE SCREEN (Klondike sederhana) -->
   <section id="solitaire-screen" class="screen game-screen">
     <div class="game-header">
       <button class="back-button" data-back>← Kembali ke Menu</button>
@@ -124,10 +124,8 @@
       <div class="solitaire-panel">
         <div class="solitaire-top">
           <div class="solitaire-stock-area">
-            <div class="stock-label">Stock</div>
-            <div id="solitaire-stock" class="stock"></div>
-            <div class="stock-label">Waste</div>
-            <div id="solitaire-waste" class="waste"></div>
+            <div id="solitaire-stock" class="pile stock" title="Klik untuk draw"></div>
+            <div id="solitaire-waste" class="pile waste" title="Kartu buangan"></div>
           </div>
           <div class="solitaire-foundations">
             <div class="foundation" data-foundation="0"></div>
@@ -137,11 +135,11 @@
           </div>
           <button id="solitaire-new" class="secondary-button">New Game</button>
         </div>
+
         <div id="solitaire-tableau" class="solitaire-tableau"></div>
+
         <p id="solitaire-status" class="game-help">
-          Aturan: Klik stock untuk menarik kartu ke waste.  
-          Di tableau, kartu-kartu awal tertutup dan hanya kartu paling ujung yang terbuka.  
-          Klik kartu terbuka (tableau/waste) untuk memindahkannya ke foundation jika urut (A → K, satu jenis kartu).
+          Aturan: Klik stock untuk draw kartu. Klik kartu face-up di tableau atau waste untuk memindah ke foundation (A → K, satu jenis kartu). Untuk saat ini, perpindahan antar kolom tableau belum diaktifkan.
         </p>
       </div>
     </div>
@@ -159,7 +157,7 @@
         <p>Skor Kamu: <span id="airhockey-player-score">0</span> | Skor AI: <span id="airhockey-ai-score">0</span></p>
         <button id="airhockey-start" class="secondary-button">Mulai / Restart</button>
       </div>
-      <p class="game-help">Gerakkan mouse di atas arena untuk mengontrol paddle kamu (bawah). Cetak gol ke gawang atas (di area gawang, bukan tembok samping).</p>
+      <p class="game-help">Gerakkan mouse di atas arena untuk mengontrol paddle kamu (bawah). Cetak gol ke gawang atas (kotak tengah).</p>
     </div>
   </section>
 
