@@ -52,7 +52,7 @@
       <article class="game-card" data-target="solitaire-screen">
         <div class="game-icon">🃏</div>
         <h2>Solitaire</h2>
-        <p>Solitaire sederhana: pindahkan kartu ke foundation dari As sampai King.</p>
+        <p>Solitaire sederhana dengan stock, waste, dan tableau kartu tertutup.</p>
         <button class="play-button">Play</button>
       </article>
 
@@ -114,7 +114,7 @@
     </div>
   </section>
 
-  <!-- SOLITAIRE SCREEN (sederhana) -->
+  <!-- SOLITAIRE SCREEN (dengan stock & tableau tertutup) -->
   <section id="solitaire-screen" class="screen game-screen">
     <div class="game-header">
       <button class="back-button" data-back>← Kembali ke Menu</button>
@@ -123,6 +123,12 @@
     <div class="game-content">
       <div class="solitaire-panel">
         <div class="solitaire-top">
+          <div class="solitaire-stock-area">
+            <div class="stock-label">Stock</div>
+            <div id="solitaire-stock" class="stock"></div>
+            <div class="stock-label">Waste</div>
+            <div id="solitaire-waste" class="waste"></div>
+          </div>
           <div class="solitaire-foundations">
             <div class="foundation" data-foundation="0"></div>
             <div class="foundation" data-foundation="1"></div>
@@ -133,7 +139,9 @@
         </div>
         <div id="solitaire-tableau" class="solitaire-tableau"></div>
         <p id="solitaire-status" class="game-help">
-          Aturan: Klik kartu di tableau untuk memindahkannya ke foundation jika urut (A → K, satu jenis kartu).
+          Aturan: Klik stock untuk menarik kartu ke waste.  
+          Di tableau, kartu-kartu awal tertutup dan hanya kartu paling ujung yang terbuka.  
+          Klik kartu terbuka (tableau/waste) untuk memindahkannya ke foundation jika urut (A → K, satu jenis kartu).
         </p>
       </div>
     </div>
@@ -151,7 +159,7 @@
         <p>Skor Kamu: <span id="airhockey-player-score">0</span> | Skor AI: <span id="airhockey-ai-score">0</span></p>
         <button id="airhockey-start" class="secondary-button">Mulai / Restart</button>
       </div>
-      <p class="game-help">Gerakkan mouse di atas arena untuk mengontrol paddle kamu (bawah). Cetak gol ke gawang atas.</p>
+      <p class="game-help">Gerakkan mouse di atas arena untuk mengontrol paddle kamu (bawah). Cetak gol ke gawang atas (di area gawang, bukan tembok samping).</p>
     </div>
   </section>
 
