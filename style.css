@@ -344,39 +344,32 @@ canvas {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  flex-wrap: wrap;
 }
 
 .solitaire-stock-area {
   display: flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
 }
 
-.stock-label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.stock,
-.waste {
+.pile {
   width: 60px;
   height: 80px;
   border-radius: 10px;
-  border: 1px dashed var(--border-subtle);
+  border: 1px solid var(--border-subtle);
   background: rgba(15, 23, 42, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  font-size: 0.8rem;
 }
 
 .stock {
   cursor: pointer;
 }
 
-.stock:hover {
-  border-color: var(--accent);
+.waste {
+  position: relative;
 }
 
 .solitaire-foundations {
@@ -398,21 +391,20 @@ canvas {
 
 .solitaire-tableau {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 10px;
+  margin-top: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .tableau-column {
-  flex: 1;
-  min-width: 40px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+  min-width: 60px;
 }
 
-/* Kartu */
+/* Kartu umum */
 .card {
   width: 60px;
   height: 80px;
@@ -438,40 +430,7 @@ canvas {
   color: #e5e7eb;
 }
 
-/* Face up & face down */
-.card.face-up {
-  position: relative;
-}
-
-.card.face-down {
-  position: relative;
-  background: linear-gradient(135deg, #0f172a, #020617);
-  border-style: solid;
-  overflow: hidden;
-}
-
-.card.face-down .card-rank-top,
-.card.face-down .card-suit-center,
-.card.face-down .card-rank-bottom {
-  visibility: hidden;
-}
-
-.card.face-down::after {
-  content: "";
-  position: absolute;
-  inset: 4px;
-  border-radius: 8px;
-  background-image: repeating-linear-gradient(
-      45deg,
-      rgba(56, 189, 248, 0.15),
-      rgba(56, 189, 248, 0.15) 4px,
-      transparent 4px,
-      transparent 8px
-    );
-  opacity: 0.6;
-}
-
-.card:hover.face-up {
+.card:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
   border-color: var(--accent);
@@ -488,6 +447,19 @@ canvas {
 
 .card-rank-bottom {
   align-self: flex-end;
+}
+
+/* Kartu tertutup */
+.card.face-down {
+  background: repeating-linear-gradient(
+      45deg,
+      #020617,
+      #020617 4px,
+      #111827 4px,
+      #111827 8px
+    );
+  border-color: rgba(30, 64, 175, 0.6);
+  color: transparent;
 }
 
 /* ===== Air Hockey ===== */
@@ -515,15 +487,10 @@ canvas {
     gap: 6px;
   }
 
+  .pile,
   .foundation,
-  .card,
-  .stock,
-  .waste {
+  .card {
     width: 50px;
     height: 70px;
-  }
-
-  .solitaire-tableau {
-    gap: 4px;
   }
 }
